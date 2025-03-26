@@ -11,6 +11,7 @@ const products = [
 ];
 
 export default function ProductDetail({ params }: { params: { id: string } }) {
+
   const productId = parseInt(params.id);
   const product = products.find(p => p.id === productId);
 
