@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Myself",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Welcome to my portfolio",
+    "intro": "Hi, I'm [Your Name], a [Your Profession]."
+  },
+  "about": {
+    "title": "About me",
+    "content": "This is the about me page. Put your biography here."
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "Here are some of my projects."
+  },
+  "project": {
+    "back": "Back to Projects"
+  },
+  "skills": {
+    "title": "My current Skillset"
+  },
+  "contact": {
+    "title": "Contact and more",
+    "email": "contact@juliusball.com",
+    "linkedin": "Julius Ball",
+    "github": "balljul"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Über mich",
+    "skills": "Fähigkeiten",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "language": "Sprache"
+  },
+  "home": {
+    "title": "Willkommen in meinem Portfolio",
+    "intro": "Hallo, ich bin Julius"
+  },
+  "about": {
+    "title": "Über mich",
+    "content": "Dies ist die Seite über mich. Fügen Sie hier Ihre Biografie ein."
+  },
+  "projects": {
+    "title": "Meine Projekte",
+    "description": "Hier sind einige meiner Projekte."
+  },
+  "project": {
+    "back": "Zurück zu Projekte"
+  },
+  "skills": {
+    "title": "Meine aktuellen Fähigkeiten"
+  },
+  "contact": {
+    "title": "Kontakt und mehr",
+    "email": "contact@juliusball.com",
+    "linkedin": "Julius Ball",
+    "github": "balljul"
+  }
+}
