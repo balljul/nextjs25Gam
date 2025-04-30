@@ -1,20 +1,20 @@
 "use client";
-
 import Link from "next/link";
 import { Project } from "@/lib/types";
-import { useI18n } from "@/lib/i18n/context";
+import { translations } from "@/lib/i18n/translations";
 
 interface ProjectCardProps {
   project: Project;
+  translations: typeof translations.en;
+  locale: string;
 }
 
-export default function ProjectCard({ project }: ProjectCardProps) {
-  const { t } = useI18n();
+export default function ProjectCard({ project, translations, locale }: ProjectCardProps) {
+  const t = translations;
 
   return (
     <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden">
       <div className="relative h-48 w-full bg-slate-200">
-        {/* Placeholder for image */}
         <div className="absolute inset-0 flex items-center justify-center bg-indigo-100 dark:bg-indigo-900 text-indigo-500">
           <span className="text-lg font-semibold">{project.title}</span>
         </div>
@@ -37,7 +37,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex justify-between items-center">
           <span className="text-xs text-indigo-500">{new Date(project.date).toLocaleDateString()}</span>
           <Link
-            href={`/projects/${project.id}`}
+            href={`/${locale}/projects/${project.id}`}
             className="bg-indigo-600 text-white px-3 py-1 rounded text-sm hover:bg-indigo-700 transition-colors"
           >
             {t.projects.viewDetails}

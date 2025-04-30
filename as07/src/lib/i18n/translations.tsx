@@ -1,3 +1,4 @@
+// lib/i18n/translations.ts
 export const translations = {
   en: {
     nav: {
@@ -8,7 +9,7 @@ export const translations = {
     },
     home: {
       title: "Welcome to Julius Ball's Portfolio",
-      subtitle: "I'm a student and full stack developer specializing in Laravel, PHP, and modern web technologies.",
+      subtitle: "I'm an 18-year-old student and full stack developer specializing in Laravel, PHP, and modern web technologies.",
       services: {
         web: {
           title: "Web Development",
@@ -28,9 +29,9 @@ export const translations = {
       title: "About Me",
       who: {
         title: "Who I Am",
-        p1: "I'm a 18-year-old student at HTBLuVA Villach IT with a passion for full stack development.",
+        p1: "I'm an 18-year-old student at HTBLuVA Villach IT with a passion for full stack development. I currently serve as the Schulsprecher (Student Council President) of HTL Villach.",
         p2: "My interest in computers sparked when I was 12 years old, beginning with simple programming and PC building.",
-        p3: "Today I aspire to become a full stack developer, constantly learning and improving my skills."
+        p3: "Today I aspire to become a full stack developer, constantly learning and improving my skills. I have experience managing software development teams and have been leading a team of up to 4 people since the beginning of 2024."
       },
       education: {
         title: "Education",
@@ -81,20 +82,10 @@ export const translations = {
         prev: "Previous",
         next: "Next"
       },
-      project1: {
-        title: "Laravel & Livewire Application",
-        description: "Full-stack application with modern design and robust database architecture.",
-        longDescription: "A comprehensive web application built for Great Big Value GmbH using Laravel and Livewire. The project included Figma design, database architecture, and deployment with Docker Compose."
-      },
-      project2: {
-        title: "WordPress Client Websites",
-        description: "Custom WordPress sites built for Pixelpoint's clients.",
-        longDescription: "Developed and designed customer websites using WordPress during my internship at Pixelpoint multimedia werbe GmbH. Implemented custom designs created in Adobe XD."
-      },
-      project3: {
-        title: "Google Apps Script Tools",
-        description: "Custom automation tools built with Google Apps Script.",
-        longDescription: "Developed automation tools for Great Big Value GmbH using Google Apps Script to optimize internal processes and data management."
+      project4: {
+        title: "Software Development Team Lead",
+        description: "Leading a team of developers on various projects since 2024.",
+        longDescription: "Since the beginning of 2024, I've been managing a team of up to 4 developers, overseeing project planning, code reviews, and ensuring timely delivery of high-quality software solutions."
       }
     },
     experience: {
@@ -158,7 +149,7 @@ export const translations = {
     },
     home: {
       title: "Willkommen im Portfolio von Julius Ball",
-      subtitle: "Ich bin Student und Full-Stack-Entwickler mit Spezialisierung auf Laravel, PHP und moderne Webtechnologien.",
+      subtitle: "Ich bin ein 18-jähriger Student und Full-Stack-Entwickler mit Spezialisierung auf Laravel, PHP und moderne Webtechnologien.",
       services: {
         web: {
           title: "Webentwicklung",
@@ -178,9 +169,9 @@ export const translations = {
       title: "Über mich",
       who: {
         title: "Wer ich bin",
-        p1: "Ich bin ein 17-jähriger Schüler an der HTBLuVA Villach IT mit einer Leidenschaft für Full-Stack-Entwicklung.",
+        p1: "Ich bin ein 18-jähriger Schüler an der HTBLuVA Villach IT mit einer Leidenschaft für Full-Stack-Entwicklung. Derzeit bin ich Schulsprecher der HTL Villach.",
         p2: "Mein Interesse an Computern entstand, als ich 12 Jahre alt war, beginnend mit einfacher Programmierung und PC-Zusammenbau.",
-        p3: "Heute strebe ich an, ein Full-Stack-Entwickler zu werden und lerne ständig dazu, um meine Fähigkeiten zu verbessern."
+        p3: "Heute strebe ich an, ein Full-Stack-Entwickler zu werden und lerne ständig dazu, um meine Fähigkeiten zu verbessern. Ich habe Erfahrung in der Leitung von Softwareentwicklungsteams und führe seit Anfang 2024 ein Team von bis zu 4 Personen."
       },
       education: {
         title: "Ausbildung",
@@ -231,20 +222,10 @@ export const translations = {
         prev: "Vorherige",
         next: "Nächste"
       },
-      project1: {
-        title: "Laravel & Livewire Anwendung",
-        description: "Full-Stack-Anwendung mit modernem Design und robuster Datenbankarchitektur.",
-        longDescription: "Eine umfassende Webanwendung, entwickelt für Great Big Value GmbH mit Laravel und Livewire. Das Projekt umfasste Figma-Design, Datenbankarchitektur und Bereitstellung mit Docker Compose."
-      },
-      project2: {
-        title: "WordPress Kundenwebsites",
-        description: "Maßgeschneiderte WordPress-Websites für Kunden von Pixelpoint.",
-        longDescription: "Entwicklung und Design von Kundenwebsites mit WordPress während meines Praktikums bei Pixelpoint multimedia werbe GmbH. Implementierung von benutzerdefinierten Designs, die in Adobe XD erstellt wurden."
-      },
-      project3: {
-        title: "Google Apps Script Tools",
-        description: "Benutzerdefinierte Automatisierungstools mit Google Apps Script.",
-        longDescription: "Entwicklung von Automatisierungstools für Great Big Value GmbH mit Google Apps Script zur Optimierung interner Prozesse und Datenverwaltung."
+      project4: {
+        title: "Softwareentwicklungsteam-Leiter",
+        description: "Leitung eines Entwicklerteams für verschiedene Projekte seit 2024.",
+        longDescription: "Seit Anfang 2024 leite ich ein Team von bis zu 4 Entwicklern, überwache die Projektplanung, führe Code-Reviews durch und stelle die termingerechte Lieferung hochwertiger Softwarelösungen sicher."
       }
     },
     experience: {

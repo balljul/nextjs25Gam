@@ -1,10 +1,10 @@
 "use client";
-
-import { useI18n } from "@/lib/i18n/context";
+import { translations } from "@/lib/i18n/translations";
 import Link from "next/link";
 
-export default function Home() {
-  const { t } = useI18n();
+export default function Home({ params }: { params: { locale: string } }) {
+  const locale = params.locale as "en" | "de";
+  const t = translations[locale];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-150px)]">
@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </div>
       <Link
-        href="/about"
+        href={`/${locale}/about`}
         className="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition-colors font-medium"
       >
         {t.nav.about}

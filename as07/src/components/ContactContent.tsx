@@ -1,10 +1,11 @@
-
 "use client";
+import { translations } from "@/lib/i18n/translations";
 
-import { useI18n } from "@/lib/i18n/context";
-
-export default function Contact() {
-  const { t } = useI18n();
+export default function ContactContent({ translations }: {
+  translations: typeof translations.en;
+  locale: string;
+}) {
+  const t = translations;
 
   return (
     <div className="max-w-4xl mx-auto">

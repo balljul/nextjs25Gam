@@ -1,12 +1,19 @@
 "use client";
-
 import { useState } from "react";
-import { projects } from "@/lib/utils/data";
 import ProjectCard from "@/components/ui/ProjectCard";
-import { useI18n } from "@/lib/i18n/context";
+import { Project } from "@/lib/types";
+import { translations } from "@/lib/i18n/translations";
 
-export default function Projects() {
-  const { t } = useI18n();
+export default function ProjectsContent({
+  translations,
+  locale,
+  projects
+}: {
+  translations: typeof translations.en;
+  locale: string;
+  projects: Project[];
+}) {
+  const t = translations;
   const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,45 +25,24 @@ export default function Projects() {
   );
 
   // Apply sorting
-  const sortProjects = () => {
-    return [...projects].sort((a, b) => {
-      const dateA = new Date(a.date).getTime();
-      const dateB = new Date(b.date).getTime();
-      return sortOrder === "newest" ? dateB - dateA : dateA - dateB;
-    });
-  };
+  const sortedProjects = [...projects].sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return sortOrder === "newest" ? dateB - dateA : dateA - dateB;
+  });
 
   // Apply filtering
-  const filterProjects = (sortedProjects: typeof projects) => {
-    if (selectedTags.length === 0) return sortedProjects;
-
-    return sortedProjects.filter(project =>
-      selectedTags.some(tag => project.tags.includes(tag))
-    );
-  };
-
-  // Process projects
-  const sortedProjects = sortProjects();
-  const filteredProjects = filterProjects(sortedProjects);
+  const filteredProjects = selectedTags.length === 0
+    ? sortedProjects
+    : sortedProjects.filter(project =>
+        selectedTags.some(tag => project.tags.includes(tag))
+      );
 
   // Handle pagination
   const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
   const currentProjects = filteredProjects.slice(indexOfFirstProject, indexOfLastProject);
-
-  const handleTagChange = (tag: string) => {
-    setSelectedTags(prev =>
-      prev.includes(tag)
-        ? prev.filter(t => t !== tag)
-        : [...prev, tag]
-    );
-    setCurrentPage(1);
-  };
-
-  const handleSortChange = (order: "newest" | "oldest") => {
-    setSortOrder(order);
-  };
 
   return (
     <div>
@@ -68,7 +54,7 @@ export default function Projects() {
           <span className="text-sm font-medium">{t.projects.sort.label}:</span>
           <div className="flex gap-2">
             <button
-              onClick={() => handleSortChange("newest")}
+              onClick={() => setSortOrder("newest")}
               className={`px-3 py-1 text-sm rounded ${
                 sortOrder === "newest"
                   ? "bg-indigo-600 text-white"
@@ -78,7 +64,7 @@ export default function Projects() {
               {t.projects.sort.newest}
             </button>
             <button
-              onClick={() => handleSortChange("oldest")}
+              onClick={() => setSortOrder("oldest")}
               className={`px-3 py-1 text-sm rounded ${
                 sortOrder === "oldest"
                   ? "bg-indigo-600 text-white"
@@ -97,7 +83,14 @@ export default function Projects() {
             {allTags.map((tag) => (
               <button
                 key={tag}
-                onClick={() => handleTagChange(tag)}
+                onClick={() => {
+                  setSelectedTags(prev =>
+                    prev.includes(tag)
+                      ? prev.filter(t => t !== tag)
+                      : [...prev, tag]
+                  );
+                  setCurrentPage(1);
+                }}
                 className={`px-3 py-1 text-sm rounded ${
                   selectedTags.includes(tag)
                     ? "bg-indigo-600 text-white"
@@ -109,7 +102,10 @@ export default function Projects() {
             ))}
             {selectedTags.length > 0 && (
               <button
-                onClick={() => setSelectedTags([])}
+                onClick={() => {
+                  setSelectedTags([]);
+                  setCurrentPage(1);
+                }}
                 className="px-3 py-1 text-sm rounded bg-slate-200 dark:bg-slate-700"
               >
                 Clear
@@ -122,7 +118,12 @@ export default function Projects() {
       {currentProjects.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {currentProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              translations={t}
+              locale={locale}
+            />
           ))}
         </div>
       ) : (

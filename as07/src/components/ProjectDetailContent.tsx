@@ -1,35 +1,23 @@
 "use client";
-
-import { useParams } from "next/navigation";
-import { projects } from "@/lib/utils/data";
 import Link from "next/link";
-import { useI18n } from "@/lib/i18n/context";
+import { Project } from "@/lib/types";
+import { translations } from "@/lib/i18n/translations";
 
-export default function ProjectDetail() {
-  const params = useParams();
-  const { t } = useI18n();
-
-  const project = projects.find((p) => p.id === params.id);
-
-  if (!project) {
-    return (
-      <div className="max-w-4xl mx-auto text-center py-12">
-        <h1 className="text-3xl font-bold mb-4 text-indigo-600">Project Not Found</h1>
-        <p className="mb-8">The project you're looking for doesn't exist.</p>
-        <Link
-          href="/projects"
-          className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors"
-        >
-          {t.projects.back}
-        </Link>
-      </div>
-    );
-  }
+export default function ProjectDetailContent({
+  translations,
+  locale,
+  project
+}: {
+  translations: typeof translations.en;
+  locale: string;
+  project: Project;
+}) {
+  const t = translations;
 
   return (
     <div className="max-w-4xl mx-auto">
       <Link
-        href="/projects"
+        href={`/${locale}/projects`}
         className="inline-flex items-center text-indigo-600 mb-6 hover:text-indigo-800 transition-colors"
       >
         ← {t.projects.back}
@@ -37,7 +25,6 @@ export default function ProjectDetail() {
 
       <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden">
         <div className="relative h-64 w-full bg-slate-200">
-          {/* Placeholder for image */}
           <div className="absolute inset-0 flex items-center justify-center bg-indigo-100 dark:bg-indigo-900 text-indigo-500">
             <span className="text-lg font-semibold">{project.title}</span>
           </div>
