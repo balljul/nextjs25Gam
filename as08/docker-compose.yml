@@ -22,6 +22,8 @@ services:
       - db
     volumes:
       - ./api:/app
+      # preserve dependencies installed in image
+      - api_node_modules:/app/node_modules
 
   frontend:
     build:
@@ -35,7 +37,12 @@ services:
       - api
     volumes:
       - ./frontend:/app
+      # preserve dependencies installed in image
+      - frontend_node_modules:/app/node_modules
 
 volumes:
   db_data:
     name: db_data
+  # named volumes to hold node_modules for each service
+  api_node_modules:
+  frontend_node_modules:
