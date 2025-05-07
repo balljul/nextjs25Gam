@@ -96,4 +96,11 @@ export default function AboutContent({ translations }: {
           </div>
           <div>
             <h3 className="text-xl font-semibold">{t.experience.job3.title}</h3>
-            <p className="text-indi
+            <p className="text-indigo-500 mb-2">{t.experience.job3.company} • {t.experience.job3.period}</p>
+            <p>{t.experience.job3.description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

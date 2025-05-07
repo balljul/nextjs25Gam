@@ -1,10 +1,10 @@
-"use client";
 import { translations } from "@/lib/i18n/translations";
 import Link from "next/link";
 
 export default function Home({ params }: { params: { locale: string } }) {
   const locale = params.locale as "en" | "de";
-  const t = translations[locale];
+  // Fallback to default locale if no translations found
+  const t = translations[locale] ?? translations["en"];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-150px)]">
